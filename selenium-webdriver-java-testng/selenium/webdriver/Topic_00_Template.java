@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Topic_00_Template {
     WebDriver driver;
-
     WebElement element;
 
     @BeforeClass
