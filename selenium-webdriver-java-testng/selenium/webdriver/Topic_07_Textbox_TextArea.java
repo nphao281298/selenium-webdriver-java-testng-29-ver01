@@ -90,13 +90,11 @@ public class Topic_07_Textbox_TextArea {
         String chars = "abcdefghijklmnopqrstuvwxyz0123456789";
         StringBuilder email = new StringBuilder();
         Random random = new Random();
-        int length = 10; // Length of the email prefix
-        String domain = "gmail.com"; // You can change the domain
-
+        int length = 10;
+        String domain = "gmail.com";
         for (int i = 0; i < length; i++) {
             email.append(chars.charAt(random.nextInt(chars.length())));
         }
-
         return email.toString() + "@" + domain;
     }
 }
