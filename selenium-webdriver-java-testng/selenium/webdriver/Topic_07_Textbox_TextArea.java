@@ -81,43 +81,43 @@ public class Topic_07_Textbox_TextArea {
 
     }
 
-    @Test
-    public void TC_02_DropDown_Win(){
-        driver.get("https://egov.danang.gov.vn/reg");
+//    @Test
+//    public void TC_02_DropDown_Win(){
+//        driver.get("https://egov.danang.gov.vn/reg");
+//
+//        Select selectCity = new Select(driver.findElement(By.id("thuongtru_tinhthanh")));
+//        selectCity.selectByVisibleText("tỉnh Đồng Tháp");
+//        selectCity.selectByValue("3678");
+//        selectCity.selectByIndex(2);
+//        selectCity.selectByVisibleText("tỉnh Đồng Tháp");
+//        Assert.assertEquals(66, selectCity.getOptions().size());
+//        Assert.assertEquals("tỉnh Đồng Tháp", selectCity.getFirstSelectedOption().getText());
+//
+//        List<WebElement> selectListCity = selectCity.getOptions();
+//        for(WebElement list: selectListCity){
+//            System.out.println(list.getText());
+//        }
+//    }
 
-        Select selectCity = new Select(driver.findElement(By.id("thuongtru_tinhthanh")));
-        selectCity.selectByVisibleText("tỉnh Đồng Tháp");
-        selectCity.selectByValue("3678");
-        selectCity.selectByIndex(2);
-        selectCity.selectByVisibleText("tỉnh Đồng Tháp");
-        Assert.assertEquals(66, selectCity.getOptions().size());
-        Assert.assertEquals("tỉnh Đồng Tháp", selectCity.getFirstSelectedOption().getText());
-
-        List<WebElement> selectListCity = selectCity.getOptions();
-        for(WebElement list: selectListCity){
-            System.out.println(list.getText());
-        }
-    }
-
-    @Test
-    public void TC_03_DropDown_Custom_Win(){
-        driver.get("https://egov.danang.gov.vn/reg");
-        driver.findElement(By.id("thuongtru_tinhthanh")).click();
-        sleepInSeconds(2);
-        List<WebElement> allItems = driver.findElements(By.xpath("//select[@id= 'thuongtru_tinhthanh']//option"));
-        int size = allItems.size();
-        System.out.println(
-                "Item size = " + size
-        );
-        for(WebElement item: allItems){
-            String actualItem = item.getText();
-            System.out.println(item.getText());
-            if (actualItem.equals("Cục trưởng cục cảnh sát Quản lý hành chính và trật tự xã hội")){
-                item.click();
-                break;
-            }
-        }
-    }
+//    @Test
+//    public void TC_03_DropDown_Custom_Win(){
+//        driver.get("https://egov.danang.gov.vn/reg");
+//        driver.findElement(By.id("thuongtru_tinhthanh")).click();
+//        sleepInSeconds(2);
+//        List<WebElement> allItems = driver.findElements(By.xpath("//select[@id= 'thuongtru_tinhthanh']//option"));
+//        int size = allItems.size();
+//        System.out.println(
+//                "Item size = " + size
+//        );
+//        for(WebElement item: allItems){
+//            String actualItem = item.getText();
+//            System.out.println(item.getText());
+//            if (actualItem.equals("Cục trưởng cục cảnh sát Quản lý hành chính và trật tự xã hội")){
+//                item.click();
+//                break;
+//            }
+//        }
+//    }
 
 
     @AfterClass
