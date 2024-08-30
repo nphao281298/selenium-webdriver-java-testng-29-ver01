@@ -45,13 +45,3 @@ public class Topic_00_Template {
     }
 }
 
-
-/*
-* Các câu lệnh để thao tác vs Browser
-* driver.
-*
-* Các câu lệnh thao tác với Element
-*
-* element.
-*
-* */

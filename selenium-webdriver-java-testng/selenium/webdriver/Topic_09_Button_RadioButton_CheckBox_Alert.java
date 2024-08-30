@@ -1,16 +1,20 @@
 package webdriver;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.awt.*;
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -18,9 +22,14 @@ public class Topic_09_Button_RadioButton_CheckBox_Alert {
     WebDriver driver;
     WebElement element;
 
+    WebDriverWait expliciWait;
+
+    By resultText = By.cssSelector("p#result");
+
     @BeforeClass
     public void beforeClass(){
         driver = new FirefoxDriver();
+        expliciWait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
@@ -77,10 +86,20 @@ public class Topic_09_Button_RadioButton_CheckBox_Alert {
             Assert.assertFalse(checkbox1.isSelected());
         }
     }
-
+    // 52:
     @Test
-    public void TC_02_(){
+    public void TC_03_Accept_Alert(){
+        driver.get("https://automationfc.github.io/basic-form/index.html");
+        driver.findElement(By.xpath("//button[@onclick = 'jsAlert()']")).click();
+        // Cho alert present
+        // Neu trong thoi gian cho ma xuat hien thi tu switch vao
+        // Neu het thoi gian cho ma chua xuat hien thi fail
 
+        Alert alert = expliciWait.until(ExpectedConditions.alertIsPresent());
+        Assert.assertEquals(alert.getText(), "I am a JS Alert");
+        alert.accept();
+
+        Assert.assertEquals(driver.findElement(resultText).getText(), "You clicked an alert successfully");
     }
 
     @Test
@@ -97,14 +116,3 @@ public class Topic_09_Button_RadioButton_CheckBox_Alert {
         driver.quit();
     }
 }
-
-
-/*
-* Các câu lệnh để thao tác vs Browser
-* driver.
-*
-* Các câu lệnh thao tác với Element
-*
-* element.
-*
-* */
